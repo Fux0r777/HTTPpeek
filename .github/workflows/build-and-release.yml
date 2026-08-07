@@ -11,7 +11,6 @@ permissions:
 jobs:
   build-linux:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -22,12 +21,10 @@ jobs:
           python-version: "3.x"
 
       - name: Install dependencies
-        run: |
-          pip install requests pyinstaller
+        run: pip install requests pyinstaller
 
       - name: Build Linux executable
-        run: |
-          pyinstaller --onefile --name python-url-scanner-linux main.py
+        run: pyinstaller --onefile --name python-url-scanner-linux main.py
 
       - name: Upload Linux binary
         uses: actions/upload-artifact@v4
@@ -35,10 +32,8 @@ jobs:
           name: python-url-scanner-linux
           path: dist/python-url-scanner-linux
 
-
   build-windows:
     runs-on: windows-latest
-
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -49,12 +44,10 @@ jobs:
           python-version: "3.x"
 
       - name: Install dependencies
-        run: |
-          pip install requests pyinstaller
+        run: pip install requests pyinstaller
 
       - name: Build Windows executable
-        run: |
-          pyinstaller --onefile --name python-url-scanner-windows main.py
+        run: pyinstaller --onefile --name python-url-scanner-windows main.py
 
       - name: Upload Windows binary
         uses: actions/upload-artifact@v4
@@ -62,13 +55,11 @@ jobs:
           name: python-url-scanner-windows
           path: dist/python-url-scanner-windows.exe
 
-
   release:
     needs:
       - build-linux
       - build-windows
     runs-on: ubuntu-latest
-
     steps:
       - name: Download Linux artifact
         uses: actions/download-artifact@v4
