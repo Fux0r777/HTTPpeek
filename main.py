@@ -3,17 +3,36 @@ import os
 import sys
 import json
 
+# im bad at naming variables and functions :(
 
-def get_url():
+def create_url():
+    
+    url = input("URL with scheme: ")
+    save = input("Save as file Y/N: ")
+
+    if save.lower() == "y":
+        with open("url.txt", "w") as created_url_file:
+            created_url_file.write(url)
+
+        return url
+
+    elif save.lower() == "n":
+        return url
+    
+    else:
+        exit()
     
 
+
+
+def get_url():
     if os.path.exists("url.txt"):
         print("Saved URL Found!")
         with open("url.txt", "r") as found_url_file:
             url = found_url_file.read()
             return url
     else:
-        exit() # adding saving
+        return create_url()
 
 def get_mode():
 
@@ -23,9 +42,10 @@ def get_mode():
 def scan(url, mode):
     response = requests.get(url)
 
-    if mode == "code" or mode == "Code":
+    if mode.lower() == "code":
         print(f"Returned status code: {response.status_code}")
-    elif mode == "page" or mode == "Page":
+
+    elif mode.lower() == "page":
         print(response.text)
 
 
