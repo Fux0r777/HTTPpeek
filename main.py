@@ -36,7 +36,7 @@ def get_url():
 
 def get_mode():
 
-    answer = input("code or page scan: ")
+    answer = input("code, header or page scan: ")
     return answer
 
 def scan(url, mode):
@@ -47,6 +47,10 @@ def scan(url, mode):
 
     elif mode.lower() == "page":
         print(response.text)
+    
+    elif mode.lower() == "header":
+        print(f"{response.headers}")
+
 
 
 
