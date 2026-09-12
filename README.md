@@ -8,4 +8,4 @@ This is just a fun toy
 
 
 
-Turns out there are a few bugs in this and im just gonna fix them for fun
+Bugs have been squashed 
