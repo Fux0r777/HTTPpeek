@@ -5,3 +5,7 @@ This is just a fun toy
 ## Project Preview
 
 ![HTTPpeek Scanner](https://raw.githubusercontent.com/Fux0r777/HTTPpeek/main/pictures/httpPeek.png)
+
+
+
+Turns out there are a few bugs in this and im just gonna fix them for fun
